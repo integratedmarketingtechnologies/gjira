@@ -92,8 +92,11 @@ def update_commit_message(filename: str, content: str) -> list:
         else:
             content = f"\n{content}\n"
 
+        if pos > 0: # append the start line if it was found above
+            content = f"{content}{GIT_START_LINES}"
+
         # add fmt to the corresponding position and read any unread line
-        lines = lines + [content] + [GIT_START_LINES] + fd.readlines()
+        lines = lines + [content] + fd.readlines()
 
         # Write lines back to file
         fd.seek(0)
