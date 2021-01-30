@@ -89,6 +89,8 @@ def update_commit_message(filename: str, content: str) -> list:
                 content = f"{content}\n"
             else:
                 content = f"\n{content}\n"
+        if len(lines) == 1: # if the commit is only one line, add a blank line between
+            content = f"\n\n{content}\n"
         else:
             content = f"\n{content}\n"
 
