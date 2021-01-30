@@ -122,13 +122,7 @@ def test_update_commit_msg_without_summary(mocker):
 
 
 def test_update_commit_msg_with_summary(mocker):
-    file_text = """This is a summary and jira should be added in the next line after the comment.
-    # A properly formed Git commit subject line should always be able to complete
-    # the following sentence:
-    #     * If applied, this commit <will your subject line here>
-    #
-    # [Add/Fix/Remove/Update/Refactor/Document/Style]: [issue #id] [summary]
-    """
+    file_text = """This is a summary and jira should be added in the next line after the comment."""
 
     fmt = "Jira issue: {ID-123}\nJira story {ID-456}"
     open_mock = mocker.patch("builtins.open", mocker.mock_open(read_data=file_text))
